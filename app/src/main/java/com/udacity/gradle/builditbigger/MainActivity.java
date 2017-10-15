@@ -10,19 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.udacity.gradle.jokes.Joker;
-
 import io.liney.displayjoke.JokeDisplayActivity;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Joker joker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        joker = new Joker();
     }
 
 
@@ -49,7 +45,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        new EndpointsAsyncTask() {
+//            @Override
+//            protected void onPostExecute(String result) {
+//                Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+//                Intent myIntent = new Intent(MainActivity.this, JokeDisplayActivity.class);
+//                myIntent.putExtra("joke", result);
+//                startActivity(myIntent);
+//            }
+        }.execute(new Pair<Context, Void>(this, null));
 //        Intent myIntent = new Intent(this, JokeDisplayActivity.class);
 //        myIntent.putExtra("joke", joker.getJoke());
 //        startActivity(myIntent);
