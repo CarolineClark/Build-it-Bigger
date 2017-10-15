@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "com.udacity.gradle.builditbigger"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -23,12 +23,16 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile project(':displayjoke')
-    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.0.1'
     compile 'com.google.android.gms:play-services-ads:11.0.4'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
+
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test.uiautomator:uiautomator-v18:2.1.2'
+    compile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1';
 }

@@ -41,6 +41,7 @@ class EndpointsAsyncTask extends AsyncTask<Pair<Context, Void>, Void, String> {
         Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         Intent myIntent = new Intent(context, JokeDisplayActivity.class);
         myIntent.putExtra("joke", result);
+        myIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(myIntent);
     }
 }
