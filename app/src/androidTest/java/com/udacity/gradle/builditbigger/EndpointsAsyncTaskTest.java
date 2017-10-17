@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertNotSame;
 
 /**
  * Instrumentation test, which will execute on an Android device.
@@ -28,7 +29,6 @@ public class EndpointsAsyncTaskTest {
         EndpointsAsyncTask task = new EndpointsAsyncTask();
         task.execute(new Pair<Context, Void>(appContext, null));
         String joke = null;
-//        Thread.sleep(5000);
         try {
             joke = task.get();
         } catch (InterruptedException e) {
@@ -37,6 +37,7 @@ public class EndpointsAsyncTaskTest {
             e.printStackTrace();
         }
         assertNotNull(joke);
+        assertNotSame("The joke should not be an empty string", joke, "");
 
     }
 }

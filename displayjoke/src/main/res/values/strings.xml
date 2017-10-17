@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DisplayJoke</string>
+    <string name="empty_joke_intent" translatable="true">Couldn\'t find joke! Maybe we\'ve run out?</string>
 </resources>
